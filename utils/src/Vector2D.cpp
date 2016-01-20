@@ -1,4 +1,5 @@
 #include "Vector2D.h"
+
 #include <sstream>
 
 using namespace std;
@@ -25,6 +26,29 @@ std::string Vector2D::print(void)
 	std::ostringstream oss;
 	oss << "x: " << x << ", y: " << y;
 	return oss.str();
+}
 
-    //return "x: " + std::string(x) + ", y: " + std::string(y);
+
+Vector2D &Vector2D::operator +=(const Vector2D& v)
+{
+	x += v.x;
+	y += v.y;
+	return *this;
+}
+
+Vector2D &Vector2D::operator -=(const Vector2D& v)
+{
+	x -= v.x;
+	y -= v.y;
+	return *this;
+}
+
+Vector2D operator +(Vector2D v1, const Vector2D& v2)
+{
+	return v1 += v2;
+}
+
+Vector2D operator -(Vector2D v1, const Vector2D& v2)
+{
+	return v1 -= v2;
 }
