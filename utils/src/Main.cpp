@@ -50,10 +50,36 @@ void testSubtract(void)
 	assert(v.getY() == (vY-v2Y) && "y not calculated when -=");
 }
 
+void testScale(void)
+{
+    int vX = 2;
+    int vY = 3;
+
+	Vector2D v(vX, vY);
+
+	float scale = 2;
+
+	Vector2D v2  = v * scale;
+
+	assert(v2.getX() == (vX*scale) && "x not calculated when *");
+    assert(v2.getY() == (vY*scale) && "y not calculated when *");
+
+    Vector2D v3  = scale * v;
+
+	assert(v3.getX() == (vX*scale) && "x not calculated when *");
+	assert(v3.getY() == (vY*scale) && "y not calculated when *");
+
+    v *= scale;
+
+	assert(v.getX() == (vX*scale) && "x not calculated when *");
+    assert(v.getY() == (vY*scale) && "y not calculated when *");
+}
+
 int main()
 {
 	testAdd();
 	testSubtract();
+	testScale();
 	return 0;
 }
 

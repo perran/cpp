@@ -5,17 +5,17 @@
 using namespace std;
 
 
-Vector2D::Vector2D (int x, int y)
+Vector2D::Vector2D (const float& x, const float& y)
     :x(x), y(y)
 {
 }
 
-int Vector2D::getX(void)
+float Vector2D::getX(void)
 {
     return x;
 }
 
-int Vector2D::getY(void)
+float Vector2D::getY(void)
 {
     return y;
 }
@@ -43,6 +43,15 @@ Vector2D &Vector2D::operator -=(const Vector2D& v)
 	return *this;
 }
 
+Vector2D &Vector2D::operator *=(const float& scalar)
+{
+	x *= scalar;
+	y *= scalar;
+	return *this;
+}
+
+//=================
+
 Vector2D operator +(Vector2D v1, const Vector2D& v2)
 {
 	return v1 += v2;
@@ -51,4 +60,14 @@ Vector2D operator +(Vector2D v1, const Vector2D& v2)
 Vector2D operator -(Vector2D v1, const Vector2D& v2)
 {
 	return v1 -= v2;
+}
+
+Vector2D operator *(Vector2D v, const float& scalar)
+{
+	return v *= scalar;
+}
+
+Vector2D operator *(const float& scalar, Vector2D v)
+{
+	return v *= scalar;
 }

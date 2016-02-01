@@ -6,19 +6,22 @@
 
 
 class Vector2D {
-    int x, y;
+    float x, y;
   public:
-    Vector2D (int,int);
-    int getX();
-    int getY();
+    Vector2D (const float& x, const float& y);
+    float getX();
+    float getY();
     std::string print (void);
 
     Vector2D& operator +=(const Vector2D& v);
     Vector2D& operator -=(const Vector2D& v);
+    Vector2D& operator *=(const float& scalar);
 };
 
 Vector2D operator +(Vector2D v1, const Vector2D& v2);
 Vector2D operator -(Vector2D v1, const Vector2D& v2);
+Vector2D operator *(Vector2D v, const float& scalar);
+Vector2D operator *(const float& scalar, Vector2D v);
 
 
 #endif
